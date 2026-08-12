@@ -13,6 +13,19 @@
 - `v1.0`:作者亲测,文档「上线生产」(抵港后)
 - `v2.0`:港漂就业实战 + 校友网络
 
+## [0.2.0] - 2026-XX-XX
+
+### Added(新增)
+
+- **CLI 工具**(`packages/cli`):9 个命令(visa/flat/payment/bank/sim/job/check/heart/doctor),发布 npm(包名 `import-hk`)
+- **Web 应用**(`packages/web`):Vite + React,指南站 + 搜索 + 心情接口彩蛋页
+- **共享数据层** `data/*.json`:8 个结构化 JSON,CLI / Web / 文档三端同步
+
+### Changed(变更)
+
+- README 重写:双端软件介绍 + 新快速开始(CLI 30 秒上手 / Web 本地构建)
+- 根 package.json 改为 npm workspaces 多包结构
+
 ## [0.1.1] - 2026-XX-XX
 
 ### Added(新增)

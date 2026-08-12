@@ -1,0 +1,33 @@
+{
+  "id": "visa",
+  "title": "学生签注 + IANG 规划",
+  "method": "GET",
+  "endpoint": "/api/visa",
+  "summary": "内地学生赴港读书的签证全流程与毕业后 IANG 留港规划",
+  "steps": [
+    { "order": 1, "title": "拿到 Offer", "detail": "Conditional 的可以,换 Fulfil 后补" },
+    { "order": 2, "title": "填 ID995A", "detail": "入境处申请表格,一般由学校系统发放" },
+    { "order": 3, "title": "学校代为递交入境处", "detail": "上传材料:经济证明、通行证、证件照" },
+    { "order": 4, "title": "等待审理(4-8 周)", "detail": "高峰期更久,尽早提交" },
+    { "order": 5, "title": "收到 Visa Label", "detail": "进入许可标签,注意入境期限" },
+    { "order": 6, "title": "办逗留(D)签注", "detail": "凭 Visa Label 去内地公安出入境办理" },
+    { "order": 7, "title": "抵港过关激活", "detail": "逗留期限正式开始" }
+  ],
+  "materials": ["录取通知书", "ID995A 表格", "经济证明(存款证明)", "通行证信息页", "白底证件照"],
+  "iang": {
+    "freshWindow": "毕业 6 个月内申请,无需先有工作",
+    "firstDuration": "首次逗留 24 个月",
+    "renewal": "续签通常 3+3,须受雇(自雇/创业需证明业务)",
+    "pr": "通常居住满 7 年可申请香港永久居民(读书时间计入)",
+    "note": "IANG = 应届毕业生专属工作签证,不需要雇主担保就能找工作"
+  },
+  "pitfalls": [
+    "Visa Label 有效期不等人,过期要重新申请",
+    "Visa Label 和 D 签都要,只有其一出不了内地海关",
+    "顺序不能反:先 Visa Label,后 D 签",
+    "IANG 的 6 个月窗口从毕业日算起,想 gap 提前规划",
+    "学生期间兼职有限制,开工前查入境处官网"
+  ],
+  "sources": ["immd.gov.hk(官方)", "内地公安出入境管理局"],
+  "humanNote": "填 ID995A 嗰日,我發現表格上每個字都係離家倒數。簽名嗰刻,手有啲震——但係,都係要行嘅。"
+}

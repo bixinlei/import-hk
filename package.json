@@ -1,0 +1,18 @@
+{
+  "name": "import-hk",
+  "version": "0.1.1",
+  "private": true,
+  "description": "import hk — Study in Hong Kong, as an API reference (CLI + Web)",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "cli": "node packages/cli/index.js",
+    "web:dev": "npm run dev --workspace import-hk-web",
+    "web:build": "npm run build --workspace import-hk-web",
+    "web:preview": "npm run preview --workspace import-hk-web"
+  },
+  "allowScripts": {
+    "esbuild@0.21.5": true
+  }
+}

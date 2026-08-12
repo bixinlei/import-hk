@@ -1,0 +1,29 @@
+{
+  "id": "heart",
+  "title": "心情接口",
+  "method": "GET",
+  "endpoint": "/api/heart",
+  "summary": "状态码即情绪:每个港漂的心里,都住着一串这样的代码",
+  "codes": [
+    { "code": "200", "official": "OK", "meaning": "一切安好,今日都係好嘅一日" },
+    { "code": "201", "official": "Created", "meaning": "交到咗第一個本地朋友" },
+    { "code": "202", "official": "Accepted", "meaning": "今日份嘅努力,已入隊列,慢慢嚟" },
+    { "code": "301", "official": "Moved Permanently", "meaning": "永久搬咗嚟香港(「回唔返去」嘅另一種講法)" },
+    { "code": "401", "official": "Unauthorized", "meaning": "身份證未到手,樣樣嘢都辦唔到" },
+    { "code": "404", "official": "Not Found", "meaning": "搵唔到路 / 搵唔到好食嘅 / 暫時搵唔到自己" },
+    { "code": "408", "official": "Request Timeout", "meaning": "等 offer、等簽證、等審核——等到麻木" },
+    { "code": "413", "official": "Payload Too Large", "meaning": "行李超重,但唔捨得掉任何一件家嘅味道" },
+    { "code": "418", "official": "I'm a teapot", "meaning": "手裡有杯絲襪奶茶,一切 OK" },
+    { "code": "429", "official": "Too Many Requests", "meaning": "想家想到過載,但係,仲係撐住咗" },
+    { "code": "451", "official": "Unavailable For Legal Reasons", "meaning": "有啲嘢講唔出口,明嘅人自然明" },
+    { "code": "502", "official": "Bad Gateway", "meaning": "屋企個信號,時好時壞;屋企人個電話,聽唔出我喊" },
+    { "code": "503", "official": "Service Unavailable", "meaning": "今日唔想努力,聽日再努力" },
+    { "code": "504", "official": "Gateway Timeout", "meaning": "畀屋企嘅視頻通話,永遠斷喺「你食咗飯未?」" }
+  ],
+  "debugging": [
+    "想家嘅時候,去維港吹下風,或者落茶餐廳飲杯凍檸茶。狀態碼會自己變返 200。",
+    "撐唔住嘅時候,記住:每一個港漂都係由 404 開始嘅,慢慢都會變成 200。",
+    "交到朋友、搵到好食、考試過咗——記得記錄低你嘅 201 時刻,呢啲先係人生嘅 changelog。"
+  ],
+  "humanNote": "攻略可以寫得冷,但日子要過得暖。你唔係一個人,好多人同你一齊 404 過。"
+}

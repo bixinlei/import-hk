@@ -7,12 +7,18 @@
 ![stars](https://img.shields.io/github/stars/bixinlei/import-hk)
 ![lang](https://img.shields.io/badge/Cantonese-friendly-red)
 
-**v0.1.1** · The docs are still in development. `v1.0` will be released after the author lands in Hong Kong.
+**v0.2.0** · Upgraded from "a document" to "real software": a CLI tool + a website, sharing one open-source data layer.
 
-Turning **"moving to Hong Kong for grad school"** into an API reference that any programmer can read.
+Turning **"moving to Hong Kong for grad school"** into an API reference that any programmer can read — and run:
+
+| Form | What | How |
+|---|---|---|
+| **CLI** | `import-hk` command, guides in your terminal | `npx import-hk visa` |
+| **Web** | guide site + search + feelings-endpoint easter egg | deploy to Vercel / GitHub Pages |
+| **Open data** | structured guides in `data/*.json` | PR to fix, everyone can contribute |
 
 **Author**: a final-year CS student from mainland China, about to move to Hong Kong.
-**Status**: `🚧 development` — not yet battle-tested in production (Hong Kong). Contributions welcome.
+**Status**: `🚧 development` — code runs, content awaits author's on-site verification after landing.
 
 > *"Senior classmates, your PRs are how this stays alive."* — the author, 30 days before departure
 
@@ -47,16 +53,33 @@ So this project was born — breaking the whole "moving to Hong Kong" process in
 
 ## 2. Quick Start
 
+### CLI (30 seconds)
+
 ```bash
-# Step 0: get an offer (this project does not cover that)
-# Step 1: student visa  — GET /api/visa
-# Step 2: find a flat   — POST /api/flat
-# Step 3: land & setup  — POST /api/onboarding
-# Step 4: bank + SIM    — POST /api/bank + GET /api/sim
-# Step 5: stay & work   — GET /api/job (IANG)
+# run without installing
+npx import-hk visa
+
+# or install globally
+npm install -g import-hk
+import-hk flat --budget 8000   # renting advice by budget
+import-hk check                # interactive pre-departure checklist
+import-hk heart                # today's mood status code
+import-hk doctor               # readiness check
 ```
 
-Each endpoint is a standalone doc. Read them in any order.
+### Web
+
+```bash
+git clone https://github.com/bixinlei/import-hk.git
+cd import-hk
+npm install
+npm run web:dev      # local dev → http://localhost:5173
+npm run web:build    # static site → packages/web/dist
+```
+
+### Docs
+
+Read the 9 endpoint docs under [`docs/`](./docs/), each mirrored by a `data/*.json`.
 
 ---
 

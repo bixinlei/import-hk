@@ -1,0 +1,31 @@
+{
+  "name": "import-hk",
+  "version": "0.1.1",
+  "description": "import hk — 一行代码,入境香港。香港留学指南命令行版:签证/租房/银行/通信/就业/心情",
+  "license": "CC-BY-4.0",
+  "bin": {
+    "import-hk": "index.js"
+  },
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "data"
+  ],
+  "scripts": {
+    "prepack": "node scripts/prepack.js"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "dependencies": {
+    "commander": "^12.1.0"
+  },
+  "keywords": [
+    "hong-kong",
+    "study-abroad",
+    "student-visa",
+    "iang",
+    "cli",
+    "guide"
+  ]
+}
