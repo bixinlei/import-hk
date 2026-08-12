@@ -173,6 +173,23 @@ function registerCommands(program) {
       printList(d.iangNotes);
     }));
 
+  // food
+  program
+    .command('food')
+    .description('食堂/茶餐厅速览(快乐加成)')
+    .action(() => cmdGuide('food', (d) => {
+      console.log(`\n📡 ${d.method} ${d.endpoint} — ${d.title}`);
+      console.log(`   ${d.summary}`);
+      printSection('必吃清单');
+      d.foods.forEach((f) => console.log(`  · ${f.name}(${f.price}): ${f.note} — ${f.place}`));
+      printSection('食堂攻略');
+      printList(d.canteen);
+      printSection('外卖平台');
+      d.delivery.forEach((x) => console.log(`  · ${x.name}: ${x.note}`));
+      printSection('饮品文化');
+      printList(d.drinks);
+    }));
+
   // check — 交互式出发清单
   program
     .command('check')
@@ -266,7 +283,7 @@ program.action(() => {
   console.log('\n🇭🇰 import-hk — 一行代码,入境香港');
   console.log(hr());
   console.log('  可用的指南命令:');
-  ['visa', 'flat', 'payment', 'bank', 'sim', 'job', 'check', 'heart', 'doctor'].forEach((c) => {
+  ['visa', 'flat', 'payment', 'bank', 'sim', 'job', 'food', 'check', 'heart', 'doctor'].forEach((c) => {
     const cmd = program.commands.find((x) => x.name() === c);
     if (cmd) console.log(`    import-hk ${c.padEnd(9)} ${cmd.description()}`);
   });

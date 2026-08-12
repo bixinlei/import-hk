@@ -7,6 +7,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
   plugins: [react()],
+  base: '/import-hk/',
   resolve: {
     alias: {
       '@data': path.resolve(__dirname, '../../data'),

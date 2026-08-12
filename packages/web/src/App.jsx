@@ -7,8 +7,9 @@ import sim from '@data/sim.json'
 import job from '@data/job.json'
 import checklist from '@data/checklist.json'
 import heart from '@data/heart.json'
+import food from '@data/food.json'
 
-const GUIDES = [visa, flat, payment, bank, sim, job, checklist]
+const GUIDES = [visa, flat, payment, bank, sim, job, checklist, food]
 
 const LABELS = {
   steps: '流程', title: '标题', detail: '详情', order: '序号',
