@@ -45,8 +45,18 @@ npm install -g import-hk
 # 查租房,按预算过滤
 import-hk flat --budget 8000
 
+# 全库搜索(13 个接口里搜关键词)
+import-hk search 押金
+
+# 全部接口总览
+import-hk all
+
 # 交互式出发清单(逐项打勾,生成准备度报告)
 import-hk check
+
+# 粤语速学 / 生活成本 / 医疗 / 文化
+import-hk language
+import-hk cost
 
 # 今日心情状态码
 import-hk heart
@@ -80,9 +90,13 @@ npm run web:build    # 构建静态站点 → packages/web/dist
 | `/api/payment` | `GET` | 八达通 / FPS / 支付生态 | ✅ |
 | `/api/bank` | `POST` | 银行开户与跨境汇款 | ✅ |
 | `/api/sim` | `POST` | 电话卡「上台」与网络 | ✅ |
-| `/api/onboarding` | `POST` | 抵港 Day-1 清单 | 🚧 |
-| `/api/job` | `GET` | 港漂程序员就业(IANG) | 🚧 |
-| `/api/food` | `GET` | 食堂/茶餐厅速览 | 🧪 alpha |
+| `/api/onboarding` | `POST` | 抵港 Day-1 清单 | ✅ |
+| `/api/job` | `GET` | 港漂程序员就业(IANG) | ✅ |
+| `/api/food` | `GET` | 食堂/茶餐厅速览 | ✅ |
+| `/api/language` | `GET` | 粤语速学(高频用语/资源) | ✅ |
+| `/api/health` | `GET` | 医疗与保险 | ✅ |
+| `/api/cost` | `GET` | 生活成本预算 | ✅ |
+| `/api/culture` | `GET` | 香港文化礼仪 | ✅ |
 | `/api/heart` | `GET` | 心情接口(状态码即情绪) | 🧪 alpha |
 
 每个接口 = `docs/*.md`(人读)+ `data/*.json`(机读)+ CLI 子命令 + Web 页面,四端同步。
@@ -93,11 +107,12 @@ npm run web:build    # 构建静态站点 → packages/web/dist
 
 ```
 import-hk/
-├── data/            # 唯一数据源:8 个结构化 JSON
+├── data/            # 唯一数据源:13 个结构化 JSON
 ├── packages/
 │   ├── cli/         # CLI 工具(发布 npm,包名 import-hk)
 │   └── web/         # Web 应用(Vite + React,部署静态站)
-├── docs/            # 9 篇人读文档
+├── docs/            # 13 篇人读文档
+├── .github/         # GitHub Actions:main 推送自动部署 gh-pages
 └── README.md
 ```
 

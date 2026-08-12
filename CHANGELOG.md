@@ -13,6 +13,30 @@
 - `v1.0`:作者亲测,文档「上线生产」(抵港后)
 - `v2.0`:港漂就业实战 + 校友网络
 
+## [0.3.0] - 2026-XX-XX
+
+### Added(新增)
+
+- 内容扩至 **13 个接口**:新增粤语速学 `/api/language`、医疗保险 `/api/health`、生活成本 `/api/cost`、文化礼仪 `/api/culture`(数据 + 文档 + CLI + Web 四端)
+- CLI 新增 `search`(全库关键词搜索)与 `all`(全部接口总览)命令
+- GitHub Actions 工作流:main 推送自动构建 Web 并部署 gh-pages
+
+### Changed(变更)
+
+- Web 接口卡片从 8 个扩到 12 个指南页 + 心情彩蛋页
+- README 接口表与快速开始更新(13 接口 / search / all 用法)
+
+## [0.2.1] - 2026-XX-XX
+
+### Added(新增)
+
+- `/api/food` 接口三端补齐:data/food.json + CLI food 命令 + Web 页面
+
+### Changed(变更)
+
+- vite base 配置为 `/import-hk/`,GitHub Pages 部署
+- 网站上线:https://bixinlei.github.io/import-hk/
+
 ## [0.2.0] - 2026-XX-XX
 
 ### Added(新增)

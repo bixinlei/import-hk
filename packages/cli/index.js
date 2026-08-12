@@ -50,6 +50,50 @@ function printFooter(d) {
 
 // ---------- 命令实现 ----------
 
+const LABELS = {
+  phrases: '高频用语', pinyin: '拼音', use: '用法',
+  tips: '贴士', resources: '学习资源', name: '名称', note: '说明',
+  insurance: '保险', type: '类型', careOptions: '看病选择', cost: '费用', wait: '等待',
+  emergency: '急诊', hotline: '热线', accident: '急症流程', tip: '提示',
+  monthly: '月预算', item: '项目', range: '范围', totalReference: '总预算参考',
+  saveTips: '省钱地图', hiddenCosts: '隐藏支出',
+  etiquette: '社交礼仪', customs: '港式习俗', taboos: '禁忌与敏感',
+  fit: '适合', names: '名单', meanings: '含义',
+};
+
+function zhLabel(k) {
+  return LABELS[k] || k;
+}
+
+function cmdGeneric(id) {
+  const d = load(id);
+  console.log(`\n📡 ${d.method} ${d.endpoint} — ${d.title}`);
+  console.log(`   ${d.summary}`);
+  const skip = new Set(['id', 'title', 'method', 'endpoint', 'summary', 'sources', 'humanNote']);
+  Object.entries(d)
+    .filter(([k]) => !skip.has(k))
+    .forEach(([k, v]) => {
+      printSection(zhLabel(k));
+      if (Array.isArray(v)) {
+        v.forEach((x) => {
+          if (typeof x === 'object' && x !== null) {
+            const parts = Object.entries(x)
+              .map(([k2, v2]) => `${zhLabel(k2)}: ${v2}`)
+              .join(' | ');
+            console.log(`  · ${parts}`);
+          } else {
+            console.log(`  · ${x}`);
+          }
+        });
+      } else if (v && typeof v === 'object') {
+        Object.entries(v).forEach(([k2, v2]) => console.log(`  · ${zhLabel(k2)}: ${v2}`));
+      } else {
+        console.log(`  · ${v}`);
+      }
+    });
+  printFooter(d);
+}
+
 function cmdGuide(id, render) {
   const d = load(id);
   render(d);
@@ -252,6 +296,61 @@ function registerCommands(program) {
       console.log(`  💡 ${tip}\n`);
     });
 
+  // language / health / cost / culture — 通用渲染接口
+  const genericMeta = {
+    language: '粤语速学(高频用语/资源)',
+    health: '医疗与保险',
+    cost: '生活成本预算',
+    culture: '香港文化礼仪',
+  };
+  Object.entries(genericMeta).forEach(([id, desc]) => {
+    program.command(id).description(desc).action(() => cmdGeneric(id));
+  });
+
+  // search — 全库搜索
+  program
+    .command('search')
+    .description('全库搜索(关键词)')
+    .argument('<keyword>', '搜索关键词')
+    .action((kw) => {
+      const kwl = kw.toLowerCase();
+      const files = fs.readdirSync(resolveDataDir()).filter((f) => f.endsWith('.json'));
+      let hits = 0;
+      files.forEach((f) => {
+        const d = JSON.parse(fs.readFileSync(path.join(resolveDataDir(), f), 'utf-8'));
+        if (!JSON.stringify(d).toLowerCase().includes(kwl)) return;
+        hits += 1;
+        console.log(`\n【${d.title}】 ${d.method} ${d.endpoint}`);
+        const walk = (obj) => {
+          Object.entries(obj).forEach(([k, v]) => {
+            if (typeof v === 'string' && v.toLowerCase().includes(kwl)) {
+              console.log(`  · ${zhLabel(k)}: ${v}`);
+            } else if (Array.isArray(v)) {
+              v.forEach(walk);
+            } else if (v && typeof v === 'object') {
+              walk(v);
+            }
+          });
+        };
+        walk(d);
+      });
+      if (!hits) console.log('没有命中。试试:签证、押金、八达通、IANG、住址证明、奶茶…');
+    });
+
+  // all — 全部接口总览
+  program
+    .command('all')
+    .description('全部接口总览(摘要)')
+    .action(() => {
+      const files = fs.readdirSync(resolveDataDir()).filter((f) => f.endsWith('.json'));
+      console.log('\n📡 import-hk 全部接口总览\n');
+      files.forEach((f) => {
+        const d = JSON.parse(fs.readFileSync(path.join(resolveDataDir(), f), 'utf-8'));
+        console.log(`  ${d.method.padEnd(4)} ${d.endpoint.padEnd(16)} ${d.title}`);
+      });
+      console.log(`\n共 ${files.length} 个接口。用 import-hk <接口名> 查看详情,import-hk search <关键词> 搜索。\n`);
+    });
+
   // doctor — 准备度总检
   program
     .command('doctor')
@@ -283,7 +382,7 @@ program.action(() => {
   console.log('\n🇭🇰 import-hk — 一行代码,入境香港');
   console.log(hr());
   console.log('  可用的指南命令:');
-  ['visa', 'flat', 'payment', 'bank', 'sim', 'job', 'food', 'check', 'heart', 'doctor'].forEach((c) => {
+  ['visa', 'flat', 'payment', 'bank', 'sim', 'job', 'food', 'language', 'health', 'cost', 'culture', 'check', 'heart', 'doctor', 'search', 'all'].forEach((c) => {
     const cmd = program.commands.find((x) => x.name() === c);
     if (cmd) console.log(`    import-hk ${c.padEnd(9)} ${cmd.description()}`);
   });

@@ -1,0 +1,33 @@
+{
+  "id": "language",
+  "title": "粤语速学",
+  "method": "GET",
+  "endpoint": "/api/language",
+  "summary": "从「識聽」到「識講」:高频用语、学习资源、港漂粤语生存术",
+  "phrases": [
+    { "phrase": "唔該", "pinyin": "m4 goi1", "use": "万能词:谢谢、劳驾、麻烦你" },
+    { "phrase": "多謝", "pinyin": "do1 ze6", "use": "收到礼物/别人主动帮忙时说" },
+    { "phrase": "早晨", "pinyin": "zou2 san4", "use": "早上好,茶餐厅必用" },
+    { "phrase": "唔使驚", "pinyin": "m4 sai2 geng1", "use": "不用怕,港漂心理建设第一句" },
+    { "phrase": "埋單", "pinyin": "maai4 daan1", "use": "结账(吃饭必备)" },
+    { "phrase": "有落", "pinyin": "jau5 lok6", "use": "小巴下车时喊「有落」" },
+    { "phrase": "得閒飲茶", "pinyin": "dak1 haan4 jam2 caa4", "use": "有空喝茶(礼貌告别语)" },
+    { "phrase": "平啲啦", "pinyin": "peng4 di1 laa1", "use": "便宜点吧(街市讲价)" },
+    { "phrase": "唔該借借", "pinyin": "m4 goi1 ze3 ze3", "use": "借过一下(人多时)" },
+    { "phrase": "你食咗飯未", "pinyin": "nei5 sik6 zo2 faan6 mei6", "use": "你吃饭了吗(经典问候)" }
+  ],
+  "tips": [
+    "先学「識聽」(能听懂),再学「識講」——听力是口语的基础",
+    "日常高频词优先级:唔該 > 多謝 > 早晨 > 埋單,这几句就够撑过第一周",
+    "香港人的普通话普及度高,不会粤语也能活,但会粤语能活得更亲",
+    "数字读音(一六八、三九)和车牌、菜价都相关,建议先背 1-10"
+  ],
+  "resources": [
+    { "name": "TVB / 港剧", "note": "带中文字幕练听力,免费且地道" },
+    { "name": "香港电台 RTHK", "note": "新闻播报,粤语标准音" },
+    { "name": "「粤语协会」公众号", "note": "拼音标注的日常用语教学" },
+    { "name": "语言交换 App", "note": "找本地人练口语(HelloTalk 等)" },
+    { "name": "「學講廣東話」系列", "note": "YouTube/B站 大量免费教程" }
+  ],
+  "humanNote": "第一堂粤语课係喺茶餐廳:伙記問「飲咩?」,我答「熱奶茶,唔該」。嗰句「唔該」,係我同呢座城市嘅第一句對話。"
+}

@@ -8,8 +8,12 @@ import job from '@data/job.json'
 import checklist from '@data/checklist.json'
 import heart from '@data/heart.json'
 import food from '@data/food.json'
+import language from '@data/language.json'
+import health from '@data/health.json'
+import cost from '@data/cost.json'
+import culture from '@data/culture.json'
 
-const GUIDES = [visa, flat, payment, bank, sim, job, checklist, food]
+const GUIDES = [visa, flat, payment, bank, sim, job, checklist, food, language, health, cost, culture]
 
 const LABELS = {
   steps: '流程', title: '标题', detail: '详情', order: '序号',
@@ -29,6 +33,13 @@ const LABELS = {
   transport: '交通速览', mode: '方式',
   codes: '心情状态码', code: '状态码', official: '官方含义',
   debugging: '调试建议', summary: '简介', humanNote: '作者手記', sources: '来源',
+  phrases: '高频用语', pinyin: '拼音', use: '用法',
+  resources: '学习资源', insurance: '保险',
+  careOptions: '看病选择', cost: '费用', wait: '等待',
+  emergency: '急诊', hotline: '热线', accident: '急症流程', tip: '提示',
+  monthly: '月预算', item: '项目', range: '范围', totalReference: '总预算参考',
+  saveTips: '省钱地图', hiddenCosts: '隐藏支出',
+  etiquette: '社交礼仪', customs: '港式习俗', taboos: '禁忌与敏感',
 }
 
 const label = (k) => LABELS[k] || k
